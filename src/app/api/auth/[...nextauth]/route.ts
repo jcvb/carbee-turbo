@@ -11,8 +11,10 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const apiUrl =
-          process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
+        console.log("process.env.NEXT_PUBLIC_API_URL::::: ", process.env.NEXT_PUBLIC_API_URL);
+        // const apiUrl =
+        //   process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
+          const apiUrl = "https://carbee-turbo.vercel.app";
         const res = await fetch(`${apiUrl}/api/login`, {
           method: "POST",
           headers: {
@@ -23,6 +25,8 @@ const handler = NextAuth({
             password: credentials?.password,
           }),
         });
+
+        console.log("res: ", res);
 
         if (!res.ok) {
           console.error('Failed to login:', res.statusText);
