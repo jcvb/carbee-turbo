@@ -1,5 +1,7 @@
 import NextAuth from "next-auth/next";
 import CredentialsProvider from "next-auth/providers/credentials";
+import { cookies } from "next/headers";
+
 const handler = NextAuth({
   providers: [
     CredentialsProvider({
@@ -9,7 +11,8 @@ const handler = NextAuth({
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000';
+        const apiUrl =
+          process.env.NEXT_PUBLIC_API_URL ?? "http://localhost:3000";
         const res = await fetch(`${apiUrl}/api/login`, {
           method: "POST",
           headers: {
@@ -22,6 +25,12 @@ const handler = NextAuth({
         });
 
         const user = await res.json();
+        cookies().set({
+          name: "token",
+          value: user.token,
+          httpOnly: true,
+          secure: true,
+        });
         if (user) {
           return user;
         } else {
@@ -38,7 +47,6 @@ const handler = NextAuth({
       session.user = token as any;
       return session;
     },
-    
   },
 });
 

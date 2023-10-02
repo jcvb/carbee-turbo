@@ -1,6 +1,7 @@
 import '../globals.scss'
 import type { Metadata } from 'next';
 import {SessionProvider} from "../providers/SessionProvider";
+import Header from '../components/Header';
 
 export const metadata: Metadata = {
   title: 'Carbee Dashboard',
@@ -16,6 +17,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <SessionProvider>
+          <Header />
           {children}
         </SessionProvider>
       </body>

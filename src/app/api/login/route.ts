@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   };
 
   const response: any = await axios.post(
-    "https://backend.billowing-truth-38ad.workers.dev/api/auth",
+    `${process.env.NEXT_API_URL}/api/auth`,
     body
   );
 

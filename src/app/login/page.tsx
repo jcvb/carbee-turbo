@@ -5,6 +5,7 @@ import { Button, Card, Container, Form, Row } from "react-bootstrap";
 import { signIn, useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import Loading from "../components/Loading";
+import Logo from "../components/Logo";
 
 export default function Page() {
   const [username, setUsername] = useState("candidate@curbee.com");
@@ -57,8 +58,9 @@ export default function Page() {
             lg={3}
             className="justify-content-md-center"
           >
-            <Card className="bg-shade-dark text-white p-5">
-              <h1 className="mb-4">Sign In</h1>
+            <Card className="bg-brand-secondary text-white p-5 mt-5 shadow">
+              <div className="m-auto"><Logo /></div>
+              <h4 className="my-4 text-center">Log In</h4>
               <Form onSubmit={handleSubmit}>
                 <Form.Group className="mb-2" controlId="username">
                   <Form.Label>Username</Form.Label>
@@ -83,7 +85,7 @@ export default function Page() {
                 </Form.Group>
                 <div className="d-grid mt-4">
                   <Button variant="brand-primary" type="submit">
-                    Sign In
+                    <span className="bold text-white">Log In</span>
                   </Button>
                 </div>
               </Form>
