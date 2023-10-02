@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Carbee Web Application
 
-## Getting Started
+Carbee is a web application designed to compete with Curbee, focusing on optimizing performance over 3G cellular networks. This project is built using Next.js and leverages React-Bootstrap for styling. The backend is pre-filled with necessary data to simulate real-world interactions and API responses.
 
-First, run the development server:
+## Project Setup
+
+### Getting Started
+
+1. Clone the repository to your local machine:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/jcvb/carbee-turbo.git
+  cd carbee-turbo
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. Install dependencies:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+  npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+3. Run the development server:
 
-## Learn More
+```bash
+  npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Open http://localhost:3000 in your browser to view the project.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Features
+- User authentication and session persistence
+- Display of user's appointments on a dashboard
+- Showing appointment availability for a selected date
 
-## Deploy on Vercel
+## Technologies Used
+- Next.js
+- React-Bootstrap
+- TypeScript
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Styling
+Styling is managed with React-Bootstrap, and the color palette is extended to match the Carbee brand colors. The fonts are defined in the global stylesheet (globals.scss) and imported into the project.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## API Endpoints
+The backend APIs are utilized to authenticate users, retrieve appointment data, and check appointment availability for a given date.
+
+- Authentication: POST /api/auth
+- Fetching Appointments: GET /api/appointments
+- Checking Availability: GET /api/availability/:date
+
+API documentation can be found https://gist.github.com/oqx/3fe35dc32796a545213d7d478452abb8
+
+## Version Control
+The project is version-controlled using Git and hosted on GitHub. Commit messages and branching follow best practices to ensure a coherent history and clear steps of development.
