@@ -24,6 +24,11 @@ const handler = NextAuth({
           }),
         });
 
+        if (!res.ok) {
+          console.error('Failed to login:', res.statusText);
+          return null;
+        }
+
         const user = await res.json();
         cookies().set({
           name: "token",
